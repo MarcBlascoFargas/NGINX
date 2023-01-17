@@ -8,16 +8,16 @@ Para eso, he instalado el nginx con sudo apt install nginx, una vez instalado en
 Dentro de la carpeta de ser, he creado un archivo index.html con el comando sudo nano index.html y lo he rellenado con un poco de datos para que se vea en la página, después he puesto la máquina en adaptador puente  y desde Google he abierto el archivo.
 
 **•	Clona el repositorio siguiente https://github.com/pmolrua/Chrono y que tu servidor muestre la página web del repositorio en la siguiente dirección web: http://<IP de tu servidor>/Chrono**
-Para hacer esto, descargado el Chrono con gitclone a la carpeta /var/www/html, el comando que utilitzado es sudo giit clone https://github.com/pmolrua/Chrono.git
+Para hacer esto, descargado el Chrono con gitclone a la carpeta `/var/www/html`, el comando que utilitzado es sudo giit clone https://github.com/pmolrua/Chrono.git
 
 
 **•	En http://<IP de tu servidor>/test.php guarda el fichero test.php que puedes descargarte de esta práctica y configura el servidor para que funcione PHP.
 **
-Los he pasado con el comando scp, scp test.php 192.168.5, después lo he movido a dentro del www con el comando mv, mv testphp /var/www. Para que me funcione correctamente he cambiado la función del php, para ello he editado el archivo default que esta en, cd /etc/ngin/sites-enabled después un nano para modificar el archivo.
+Los he pasado con el comando scp, `scp test.php 192.168.5`, después lo he movido a dentro del www con el comando mv, `mv testphp /var/www`. Para que me funcione correctamente he cambiado la función del php, para ello he editado el archivo default que esta en, `cd /etc/ngin/sites-enabled` después un nano para modificar el archivo.
 
 
 **•	Descarga el fichero 404.html y configura nginx para que muestre dicho fichero cuando se acceda a una url que no existe (y solo en ese caso, no directamente).**
-He descargado el fichero 404.html  lo he enviado a la carpeta www, y para que funcione en todas las páginas, me ido al archivo default  con cd /etc/nginx/sites-enabled , después sudo nano default y he modificado el archivo añadiéndole 
+He descargado el fichero 404.html  lo he enviado a la carpeta www, y para que funcione en todas las páginas, me ido al archivo default  con `cd /etc/nginx/sites-enabled` , después `sudo nano default` y he modificado el archivo añadiéndole 
 `error_page 404 /404.html;
 location= /404.html {
 	root /var/www;
@@ -30,7 +30,7 @@ Para empezar, he instalado en el openssl con sudo apt instal openssl, una vez lo
 
 **•	Configura nginx para redirigir todo el tráfico http a la versión https, haciendo que toda la navegación en el sitio web sea forzosamente segura.
 **
-Para ello, como sigo en la carpeta sites-enabled, directamente con un nano default ya entro al archivo, lo he modificado añadiendo el return 301
+Para ello, como sigo en la carpeta sites-enabled, directamente con un nano default ya entro al archivo, lo he modificado añadiendo el return 301,
 
 
 **•	Crea un directorio admin, haz que cuando se acceda a él nginx liste su contenido y guarda en él algunas imágenes.
