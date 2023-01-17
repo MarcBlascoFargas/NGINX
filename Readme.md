@@ -25,7 +25,7 @@ location= /404.html {
   
 •	Crea un certificado autofirmado y configura nginx para usar https.
 **
-Para empezar, he instalado en el openssl con sudo apt instal openssl, una vez lo tenemos creamos la llave publica y el certificado a través del comando sudo #openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-clave.com.key -out /etc/ssl/certs/certificado.com.pem, una vez creados, vamos a la carpeta default con cd /etc/nginx/sites-enabled , después sudo nano default y le añadimos la key y el certificado el en el archivo.
+Para empezar, he instalado en el openssl con sudo apt instal openssl, una vez lo tenemos creamos la llave publica y el certificado a través del comando `sudo #openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-clave.com.key -out /etc/ssl/certs/certificado.com.pem,` una vez creados, vamos a la carpeta default con cd /etc/nginx/sites-enabled , después sudo nano default y le añadimos la key y el certificado el en el archivo.
 
 
 **•	Configura nginx para redirigir todo el tráfico http a la versión https, haciendo que toda la navegación en el sitio web sea forzosamente segura.
@@ -35,11 +35,11 @@ Para ello, como sigo en la carpeta sites-enabled, directamente con un nano defau
 
 **•	Crea un directorio admin, haz que cuando se acceda a él nginx liste su contenido y guarda en él algunas imágenes.
 **
-Me ha costado encontrar el código, lo que he hecho es crear una carpeta en www con sudo mkdir prueba1.txt, y varios archivos mas para comprobar. Después he encontrado el código, he ido al archivo default con cd /etc/nginx/sites-enabled , después sudo nano default. Una vez dentro he añadido el location y el autoindex.
+Me ha costado encontrar el código, lo que he hecho es crear una carpeta en www con sudo mkdir prueba1.txt, y varios archivos mas para comprobar. Después he encontrado el código, he ido al archivo default con `nginx/sites-enabled` , después sudo nano default. Una vez dentro he añadido el location y el autoindex.
 
 
 **•	Protege el acceso al directorio admin por usuario y contraseña utilizando nginx. Incluye, como mínimo, el usuario "ser" con contraseña "1234".
 **
-Según he encontrado y me ha funcionado, primero ejecutamos el siguiente comando sudo sh -c “echo -n ‘ser’>> /etc/nginx/.htpasswd” para crear el usuaro ser y  después hacemos este comando sudo passwd  -apr1>> /etc/nginx/.htpasswd” y este para añadirle la contraseña 1234. Para terminar, abrimos el archivo default y añadimos lo siguiente:
+Según he encontrado y me ha funcionado, primero ejecutamos el siguiente comando `sudo sh -c “echo -n ‘ser’>> /etc/nginx/.htpasswd”` para crear el usuaro ser y  después hacemos este comando `sudo passwd  -apr1>> /etc/nginx/.htpasswd”` y este para añadirle la contraseña 1234. Para terminar, abrimos el archivo default y añadimos lo siguiente:
 `auth_basic “Restricted”;
 auth_basic_user_file /etc/nginx/.htpasswd;`
